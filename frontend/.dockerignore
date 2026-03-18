@@ -1,0 +1,11 @@
+.env
+.env.local
+node_modules
+.next
+out
+build
+.git
+.agents
+*.log
+docker-compose.yml
+Dockerfile

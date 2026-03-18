@@ -1,0 +1,9 @@
+.env
+node_modules
+dist
+prisma/dev.db
+.git
+.agents
+*.log
+docker-compose.yml
+Dockerfile
