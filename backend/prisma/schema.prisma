@@ -1,0 +1,38 @@
+generator client {
+  provider   = "prisma-client-js"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  password String
+  name     String?
+}
+
+model Dumpster {
+  id           Int      @id @default(autoincrement())
+  serialNumber String   @unique
+  color        String
+  isRented     Boolean? @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  rentals      Rental[]
+}
+
+model Rental {
+  id           Int       @id @default(autoincrement())
+  dumpsterId   Int
+  startDate    DateTime  @default(now())
+  endDate      DateTime?
+  cep          String
+  street       String
+  neighborhood String
+  city         String
+  state        String
+  dumpster     Dumpster  @relation(fields: [dumpsterId], references: [id])
+}
