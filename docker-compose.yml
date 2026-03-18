@@ -45,6 +45,7 @@ services:
       - "4000:3000"
     environment:
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+      SERVER_API_URL: http://backend:3000/api
     depends_on:
       - backend
 
