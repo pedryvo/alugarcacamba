@@ -90,7 +90,7 @@ Com tudo rodando, acesse no seu navegador:
 A API inicializa automaticamente um usuário administrador se o banco estiver vazio. Você pode usá-lo para acessar a plataforma:
 
 - **E-mail**: `admin@recicla.com`
-- **Senha**: `admin` *(verifique em `backend/prisma/seed.ts` se alterado no código-fonte).*
+- **Senha**: `admin123` *(verifique em `backend/prisma/seed.ts` se alterado no código-fonte).*
 
 ---
 
