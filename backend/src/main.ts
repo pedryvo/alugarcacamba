@@ -16,6 +16,8 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
     }),
   );
+  
+  app.setGlobalPrefix('api');
   app.enableCors();
 
   const config = new DocumentBuilder()
