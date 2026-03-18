@@ -15,7 +15,7 @@ async function getAuthHeaders() {
   };
 }
 
-export async function loginAction(formData: any) {
+export async function loginAction(formData: Record<string, unknown>) {
   const response = await fetch(`${API_URL}/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -45,7 +45,7 @@ export async function logoutAction() {
   redirect('/login');
 }
 
-export async function createDumpsterAction(data: any) {
+export async function createDumpsterAction(data: Record<string, unknown>) {
   const headers = await getAuthHeaders();
   const response = await fetch(`${API_URL}/dumpsters`, {
     method: 'POST',
@@ -62,7 +62,7 @@ export async function createDumpsterAction(data: any) {
   return { success: true };
 }
 
-export async function updateDumpsterAction(id: number, data: any) {
+export async function updateDumpsterAction(id: number, data: Record<string, unknown>) {
   const headers = await getAuthHeaders();
   const response = await fetch(`${API_URL}/dumpsters/${id}`, {
     method: 'PATCH',
@@ -79,7 +79,7 @@ export async function updateDumpsterAction(id: number, data: any) {
   return { success: true };
 }
 
-export async function createRentalAction(data: any) {
+export async function createRentalAction(data: Record<string, unknown>) {
   const headers = await getAuthHeaders();
   const response = await fetch(`${API_URL}/rentals`, {
     method: 'POST',
