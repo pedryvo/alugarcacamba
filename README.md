@@ -48,7 +48,25 @@ Todo o ambiente está preparado e orquestrado no Docker, eliminando a necessidad
 - [Docker](https://www.docker.com/) instado no seu sistema.
 - [Docker Compose](https://docs.docker.com/compose/) instalado.
 
-### 2. Subindo a Aplicação
+### 2. Configurando o Ambiente
+Crie um arquivo `.env` na raiz do projeto (mesmo nível do docker-compose.yml) baseado no exemplo abaixo:
+
+```env
+# Database
+POSTGRES_USER=recicla_user
+POSTGRES_PASSWORD=recicla_password
+POSTGRES_DB=recicla_db
+DATABASE_URL=postgresql://recicla_user:recicla_password@db:5432/recicla_db?schema=public
+
+# Backend
+JWT_SECRET=your_super_secret_key_here
+PORT=3000
+
+# Frontend
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+### 3. Subindo a Aplicação
 No diretório raiz do projeto (onde o arquivo `docker-compose.yml` está), rode o seguinte comando:
 
 ```bash
