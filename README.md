@@ -99,7 +99,21 @@ A API inicializa automaticamente um usuário administrador se o banco estiver va
 - **Autenticação via Proxy Server**: As rotas protegidas não chegam ao cliente sem permissão - o Next.js Middleware barateia o processo rejeitando no lado do servidor.
 - **Integração com ViaCEP**: Busca automática de endereços ao digitar o CEP no aluguel da caçamba.
 - **Dashboard e Histórico Paginado**: Renderização robusta com a performance e SEO dos Next.js Server Components.
-- **Validação e Tipagem Compartilhada**: Backend e Frontend falam o mesmo idioma, mitigando erros lógicos através de DTOs e Interfaces firmes no TypeScript.
+## 🧪 Rodando os Testes
+
+O projeto possui uma infraestrutura completa de **Testes Unitários** para cobrir a lógica de negócios sem depender de bancos de dados externos.
+
+Para rodar a suíte de testes de forma isolada nos containers Docker já configurados, execute os seguintes comandos no terminal:
+
+**1. Testes do Backend (NestJS + Prisma):**
+```bash
+docker compose run --build --rm backend pnpm run test
+```
+
+**2. Testes do Frontend (Next.js + Vitest):**
+```bash
+docker compose run --build --rm frontend npm run test
+```
 
 ---
 
