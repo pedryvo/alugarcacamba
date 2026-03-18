@@ -7,7 +7,9 @@ import { Dumpster, Rental } from '@/types';
 async function getDumpster(id: string) {
   const cookieStore = await cookies();
   const token = cookieStore.get('token')?.value;
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+  const API_URL = typeof window === 'undefined'
+    ? process.env.SERVER_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
+    : process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
   const res = await fetch(`${API_URL}/dumpsters/${id}`, {
     headers: {
@@ -23,7 +25,9 @@ async function getDumpster(id: string) {
 async function getRentalHistory(id: string) {
   const cookieStore = await cookies();
   const token = cookieStore.get('token')?.value;
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+  const API_URL = typeof window === 'undefined'
+    ? process.env.SERVER_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
+    : process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
   const res = await fetch(`${API_URL}/rentals/dumpster/${id}`, {
     headers: {

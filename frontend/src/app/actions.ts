@@ -4,7 +4,9 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+const API_URL = typeof window === 'undefined'
+  ? process.env.SERVER_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
+  : process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
 async function getAuthHeaders() {
   const cookieStore = await cookies();

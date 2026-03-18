@@ -8,7 +8,9 @@ import FilterSection from './_components/FilterSection';
 async function getDumpsters(serialNumber?: string, isRented?: string) {
   const cookieStore = await cookies();
   const token = cookieStore.get('token')?.value;
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+  const API_URL = typeof window === 'undefined'
+    ? process.env.SERVER_API_URL || process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000'
+    : process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
   const params = new URLSearchParams();
   if (serialNumber) params.append('serialNumber', serialNumber);
